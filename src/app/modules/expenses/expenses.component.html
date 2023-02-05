@@ -1,0 +1,20 @@
+<div>
+  <app-add-expense-form (addExpense)="onAddExpense($event)"></app-add-expense-form>
+  <mat-divider class="divider"></mat-divider>
+  <div class="expense-filters">
+    <mat-form-field appearance="fill"  class="expense-filters-range">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date">
+        <input matEndDate placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="expense-filters-search">
+      <mat-label>Search</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+  </div>
+</div>

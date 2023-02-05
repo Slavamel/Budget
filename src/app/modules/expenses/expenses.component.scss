@@ -1,0 +1,17 @@
+.expense-filters {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.expense-filters-range {
+  width: 260px;
+}
+
+.expense-filters-search {
+  flex: 1;
+}
+
+.divider {
+  margin-bottom: 22px;
+}

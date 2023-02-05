@@ -1,0 +1,25 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.form-amount {
+  width: 150px;
+}
+
+.form-date {
+  width: 155px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  text-align: right;
+}
