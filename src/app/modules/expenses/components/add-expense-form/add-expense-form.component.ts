@@ -39,6 +39,7 @@ export class AddExpenseFormComponent {
       category: formValue.category!,
       date: new Date(formValue.date.getFullYear(), formValue.date.getMonth(), formValue.date.getDate()),
       description: formValue.description,
+      currency: 'AMD'
     });
 
     this.expenseForm.reset(undefined, {emitEvent: false});

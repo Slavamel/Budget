@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Expense } from '../../models/expense.model';
 import { KeyValue } from '@angular/common';
 
@@ -7,9 +7,15 @@ import { KeyValue } from '@angular/common';
   templateUrl: './expense-list.component.html',
   styleUrls: ['./expense-list.component.scss']
 })
-export class ExpenseListComponent {
-  expenses: Expense[] = mockExpenses;
-  mapExpenses = this.convertToMap(mockExpenses);
+export class ExpenseListComponent implements OnChanges {
+  @Input() expenses: Expense[] = [];
+  expensesMapped: Map<number, Expense[]> = new Map();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['expenses'] && changes['expenses'].currentValue) {
+      this.expensesMapped = this.convertToMap(this.expenses);
+    }
+  }
 
   compareFn(a: KeyValue<number, any>, b: KeyValue<number, any>): number {
     return b.key - a.key;
@@ -31,43 +37,3 @@ export class ExpenseListComponent {
     return map;
   }
 }
-
-
-const mockExpenses = [
-  {
-    amount: 100,
-    date: new Date(2023, 1, 7),
-    category: 'Some',
-    description: null,
-  },
-  {
-    amount: 1500,
-    date: new Date(2023, 1, 5),
-    category: 'Housing',
-    description: 'some text',
-  },
-  {
-    amount: 1200,
-    date: new Date(2023, 1, 5),
-    category: 'Housing',
-    description: null,
-  },
-  {
-    amount: 500,
-    date: new Date(2023, 1, 5),
-    category: 'Housing',
-    description: null,
-  },
-  {
-    amount: 100,
-    date: new Date(2023, 1, 5),
-    category: 'Housing',
-    description: null,
-  },
-  {
-    amount: 100,
-    date: new Date(2023, 1, 6),
-    category: 'Housing',
-    description: null,
-  }
-]

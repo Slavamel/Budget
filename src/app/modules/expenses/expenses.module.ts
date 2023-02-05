@@ -5,12 +5,14 @@ import { AddExpenseFormComponent } from './components/add-expense-form/add-expen
 import { ReactiveFormsModule } from '@angular/forms';
 import { ExpensesComponent } from './expenses.component';
 import { ExpenseListComponent } from './components/expense-list/expense-list.component';
+import { CustomCurrencyPipe } from './services/custom-currency.pipe';
 
 @NgModule({
   declarations: [
     AddExpenseFormComponent,
     ExpensesComponent,
-    ExpenseListComponent
+    ExpenseListComponent,
+    CustomCurrencyPipe
   ],
   imports: [
     CommonModule,

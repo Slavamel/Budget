@@ -1,5 +1,5 @@
 <div>
-  <mat-list *ngFor="let expense of mapExpenses | keyvalue:compareFn ">
+  <mat-list *ngFor="let expense of expensesMapped | keyvalue:compareFn ">
     <h3>{{ expense.key | date : "d MMM" }}</h3>
     <mat-list-item *ngFor="let expenseData of expense.value">
       <mat-icon matListItemIcon>paid</mat-icon>
@@ -12,7 +12,7 @@
               : expenseData.category
           }}
         </span>
-        <span>{{ expenseData.amount | currency : "AMD" : "֏" }}</span>
+        <span>{{ expenseData.amount | customCurrency:expenseData.currency }}</span>
       </div>
     </mat-list-item>
   </mat-list>
