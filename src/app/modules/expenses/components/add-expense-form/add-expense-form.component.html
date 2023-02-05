@@ -13,13 +13,6 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" >
-    <mat-label>Sub Category</mat-label>
-    <mat-select formControlName="subCategory">
-      <mat-option *ngFor="let subCategory of subCategories" [value]="subCategory">{{ subCategory }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <input matInput formControlName="description" type="text">

@@ -1,0 +1,19 @@
+<div>
+  <mat-list *ngFor="let expense of mapExpenses | keyvalue:compareFn ">
+    <h3>{{ expense.key | date : "d MMM" }}</h3>
+    <mat-list-item *ngFor="let expenseData of expense.value">
+      <mat-icon matListItemIcon>paid</mat-icon>
+      <!-- TODO: write custom pipe for currency -->
+      <div matListItemTitle class="expense-item">
+        <span>
+          {{
+            expenseData.description
+              ? expenseData.category + " - " + expenseData.description
+              : expenseData.category
+          }}
+        </span>
+        <span>{{ expenseData.amount | currency : "AMD" : "֏" }}</span>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</div>

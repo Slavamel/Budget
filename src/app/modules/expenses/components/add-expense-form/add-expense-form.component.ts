@@ -19,7 +19,6 @@ export class AddExpenseFormComponent {
       nonNullable: true,
       validators: [Validators.required, Validators.min(1)]
     }),
-    subCategory: [null],
     description: [null],
     date: new FormControl<Date>(new Date(), {
       nonNullable: true,
@@ -28,7 +27,6 @@ export class AddExpenseFormComponent {
   }, {updateOn: 'submit'});
 
   categories = categories;
-  subCategories = subCategories;
 
   constructor(private fb: FormBuilder) {}
 
@@ -39,45 +37,14 @@ export class AddExpenseFormComponent {
     this.addExpense.emit({
       amount: formValue.amount!,
       category: formValue.category!,
-      date: formValue.date,
+      date: new Date(formValue.date.getFullYear(), formValue.date.getMonth(), formValue.date.getDate()),
       description: formValue.description,
-      subCategory: formValue.subCategory
     });
 
     this.expenseForm.reset(undefined, {emitEvent: false});
     formDirective.resetForm();    
   }
 }
-
-const subCategories = [
-  'Rent',
-  'Repairs',
-  'Misc',
-  'Electricity',
-  'Water',
-  'Internet',
-  'Phone',
-  'Taxi',
-  'Clothes',
-  'Shoes',
-  'Haircuts',
-  'Cosmetics',
-  'Subscriptions',
-  'Education',
-  'Birthday',
-  'Charity',
-  'Alcohol',
-  'Games',
-  'Movies',
-  'Concerts',
-  'Vacations',
-  'Subscriptions',
-  'Fast Food',
-  'Snacks',
-  'Grocery',
-  'Canteen',
-  'Drugs',
-];
 
 const categories = [
   'Housing',

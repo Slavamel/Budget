@@ -1,6 +1,8 @@
-<div>
+<div class="container">
   <app-add-expense-form (addExpense)="onAddExpense($event)"></app-add-expense-form>
+
   <mat-divider class="divider"></mat-divider>
+
   <div class="expense-filters">
     <mat-form-field appearance="fill"  class="expense-filters-range">
       <mat-label>Enter a date range</mat-label>
@@ -17,4 +19,8 @@
       <input matInput type="text">
     </mat-form-field>
   </div>
+
+  <mat-divider class="divider"></mat-divider>
+
+  <app-expense-list></app-expense-list>
 </div>

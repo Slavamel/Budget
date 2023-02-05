@@ -4,11 +4,13 @@ import { MaterialModule } from '../material.module';
 import { AddExpenseFormComponent } from './components/add-expense-form/add-expense-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ExpensesComponent } from './expenses.component';
+import { ExpenseListComponent } from './components/expense-list/expense-list.component';
 
 @NgModule({
   declarations: [
     AddExpenseFormComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    ExpenseListComponent
   ],
   imports: [
     CommonModule,
